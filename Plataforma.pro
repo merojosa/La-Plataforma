@@ -12,10 +12,8 @@ TARGET = Plataforma
 TEMPLATE = app
 
 
-SOURCES += main.cpp \
-    player.cpp
+SOURCES += main.cpp
 
-HEADERS  += \
-    player.h
+HEADERS  +=
 
 FORMS    += mainwindow.ui
