@@ -9,7 +9,6 @@
 #include <typeinfo>//typeid
 #include <stdlib.h> //rand
 
-#include <QDebug>
 
 extern Player* player; //El jugador se hace global ya que será usado en otras clases
 extern Score* score; //Se debe acceder en esta clase
@@ -91,7 +90,7 @@ void Sierra::move()
             score->increase();
 
         scene()->removeItem(this);//Lo elimino
-        qDebug() << "Sierra eliminada";
+
         delete this;
     }
 }

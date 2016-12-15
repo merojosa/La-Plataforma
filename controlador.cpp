@@ -2,6 +2,7 @@
 #include "cubo.h"
 #include "misil.h"
 #include "sierra.h"
+#include "powers.h"
 
 #include <QDebug>
 #include <QGraphicsScene>
@@ -29,4 +30,10 @@ void Controlador::spawn_sierras()
 {
     Sierra* sierra = new Sierra();
     scene()->addItem(sierra);
+}
+
+void Controlador::spawn_powers()
+{
+    Powers* powers = new Powers();
+    scene()->addItem(powers);
 }

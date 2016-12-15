@@ -78,10 +78,15 @@ void Game::start()
     //Creo los misiles
     QTimer* timer_misiles = new QTimer();
     QObject::connect( timer_misiles, SIGNAL(timeout()), controlador, SLOT(spawn_misiles()) );
-    timer_misiles->start(6000);//6 segundos
+    timer_misiles->start(7000);//7 segundos
 
     //Creo las sierras
     QTimer* timer_sierras = new QTimer();
     QObject::connect( timer_sierras, SIGNAL(timeout()), controlador, SLOT(spawn_sierras()) );
     timer_sierras->start(17000);//17 segundos
+
+    //Creo los poderes
+    QTimer* timer_powers = new QTimer();
+    QObject::connect( timer_powers, SIGNAL(timeout()), controlador, SLOT(spawn_powers()) );
+    timer_powers->start(5000);//17 segundos
 }

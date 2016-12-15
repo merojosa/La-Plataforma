@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     game.cpp \
     score.cpp \
     misil.cpp \
-    sierra.cpp
+    sierra.cpp \
+    powers.cpp
     misil.cpp
 
 HEADERS  += \
@@ -30,7 +31,8 @@ HEADERS  += \
     game.h \
     score.h \
     misil.h \
-    sierra.h
+    sierra.h \
+    powers.h
     misil.h
 
 HEADERS  += \
