@@ -6,7 +6,6 @@
 
 Controlador::Controlador()
 {
-
 }
 
 void Controlador::spawn()
