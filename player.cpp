@@ -1,14 +1,15 @@
 #include "player.h"
-
 #include "info.h"
-
 #include "cubo.h"
+#include "game.h"
 
 #include <QDebug>
 #include <QGraphicsScene>
 
 bool jumping = false;
-bool disabled = false;
+bool gameOver = false;
+
+extern Game* game;
 
 Player::Player()
 {
@@ -33,7 +34,6 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             connect(timer, SIGNAL(timeout()), this, SLOT(fallDown()));
             timer->start(10);
-            disabled = true;
         }
     }
     else if(event->key() == Qt::Key_Right) //Derecha, si esta agachado se levanta
@@ -50,12 +50,11 @@ void Player::keyPressEvent(QKeyEvent *event)
         {
             connect(timer, SIGNAL(timeout()), this, SLOT(fallDown()));
             timer->start(10);
-            disabled = true;
         }
     }
     else if(event->key() == Qt::Key_Down) //Si está levantado se agacha.
     {
-        if(!disabled)
+        if(!gameOver)
         {
             if(rect().height() != 30) //Si la altura no es 30 ( es 60 )
             {
@@ -125,6 +124,7 @@ void Player::fallDown()
         info->setPos(info->x()-100, info->y()+300);
 
         delete this;
+        gameOver = true;
     }
 
 }

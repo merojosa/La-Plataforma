@@ -4,7 +4,7 @@
 #include <QGraphicsRectItem>
 #include <QObject>//slots
 
-//IMPORTANTE: se me hace útil para disparar los cubos, las sierras y los misiles.  Note que la posición de la bala se pone en MyRect.cpp
+//IMPORTANTE: se me hace útil para disparar los cubos, las sierras y los misiles.  Note que la posición del cubo se pone en MyRect.cpp
 class Cubo : public QObject, public QGraphicsRectItem
 {
     Q_OBJECT

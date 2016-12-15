@@ -16,11 +16,13 @@ SOURCES += main.cpp \
     player.cpp \
     info.cpp \
     cubo.cpp \
-    controlador.cpp
+    controlador.cpp \
+    game.cpp
 
 HEADERS  += \
     player.h \
-    info.h
+    info.h \
+    game.h
 
 
 HEADERS  += \

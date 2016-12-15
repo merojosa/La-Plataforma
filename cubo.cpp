@@ -1,5 +1,6 @@
 #include "Cubo.h"
 #include "player.h"
+#include "info.h"
 
 #include <QTimer>
 #include <QList>
@@ -8,6 +9,8 @@
 #include <stdlib.h> //rand
 
 #include <QDebug>
+
+extern Player* player; //El jugador se hace global ya que será usado en otras clases
 
 Cubo::Cubo() : QObject(), QGraphicsRectItem()
 {
@@ -37,9 +40,16 @@ void Cubo::move()
         // Si el cubo choca con el jugador.
         if( typeid( *(colliding_items[contador]) ) == typeid(Player) )
         {
+            //Muestra el Game Over
+            Info* info = new Info();
+            scene()->addItem(info);
+            info->setPos(info->x()-100, info->y()+300);
+
+            scene()->removeItem(player); //Elimina el jugador (global)
+
             scene()->removeItem(this);//Saco de escena al cubo
             delete this;//Elimino el cubo.
-            qDebug() << "Choque de cubo";
+
             return;
         }
     }
