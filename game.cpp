@@ -59,18 +59,18 @@ void Game::start()
     view->setFixedSize(785,600);
     scene->setSceneRect(-360,30,780,560);
 
-    //Para crear los cubos que caen desde el cielo
-    Controlador* controlador = new Controlador();
-    scene->addItem(controlador);//Para agregar un objeto a la escena, el controlador debe de estar en la escena.
-    QTimer* timer = new QTimer();
-    QObject::connect( timer, SIGNAL(timeout()), controlador, SLOT(spawn()) );
-    timer->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
 
     //Se añade sonido de fondo
     music = new QMediaPlayer();
     music->setMedia(QUrl("qrc:/sound/Insane-Gameplay.mp3"));
     music->play();
 
+    //Controla la salida de los "enemigos"
+    Controlador* controlador = new Controlador();
+    scene->addItem(controlador);//Para agregar un objeto a la escena, el controlador debe de estar en la escena.
+
+
+    //Creo los cubos
     QTimer* timer_cubos = new QTimer();
     QObject::connect( timer_cubos, SIGNAL(timeout()), controlador, SLOT(spawn_cubos()) );
     timer_cubos->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
@@ -79,4 +79,9 @@ void Game::start()
     QTimer* timer_misiles = new QTimer();
     QObject::connect( timer_misiles, SIGNAL(timeout()), controlador, SLOT(spawn_misiles()) );
     timer_misiles->start(6000);//6 segundos
+
+    //Creo las sierras
+    QTimer* timer_sierras = new QTimer();
+    QObject::connect( timer_sierras, SIGNAL(timeout()), controlador, SLOT(spawn_sierras()) );
+    timer_sierras->start(17000);//17 segundos
 }

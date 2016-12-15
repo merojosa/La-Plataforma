@@ -1,6 +1,7 @@
 #include "controlador.h"
 #include "cubo.h"
 #include "misil.h"
+#include "sierra.h"
 
 #include <QDebug>
 #include <QGraphicsScene>
@@ -22,4 +23,10 @@ void Controlador::spawn_misiles()
 {
     Misil* misil = new Misil();
     scene()->addItem(misil);
+}
+
+void Controlador::spawn_sierras()
+{
+    Sierra* sierra = new Sierra();
+    scene()->addItem(sierra);
 }

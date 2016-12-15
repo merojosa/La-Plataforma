@@ -18,3 +18,9 @@ void Score::increase()
     setPlainText(QString("Score: ") + QString::number(++score));
 }
 
+void Score::doubleScore()
+{
+    //Doblo el puntaje
+    setPlainText(QString("Score: ") + QString::number(score *= 2));
+}
+

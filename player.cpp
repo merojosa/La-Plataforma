@@ -75,7 +75,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             if(jumping == false)
             {
                 connect(timer, SIGNAL(timeout()), this, SLOT(ascend()));
-                timer->start(15);
+                timer->start(10);
 
                 jumping = true;
 
@@ -88,14 +88,14 @@ void Player::keyPressEvent(QKeyEvent *event)
 
 void Player::ascend()
 {
-    if(y() <= 0 && y() > -40) //Si esta en este rango, se mueve
+    if(y() <= 0 && y() > -60) //Si esta en este rango, se mueve
         this->setPos(x(), y()-2);
-    else if(y() <= 420 && y() > 380) //Si esta en este rango se mueve
+    else if(y() <= 420 && y() > 360) //Si esta en este rango se mueve
         this->setPos(x(), y()-2);
 
     //qDebug() << y();
 
-    if(y()==-40 || y() == 380) //Cuando esta en el cielo debe bajar, se llama fall()
+    if(y()==-60 || y() == 360) //Cuando esta en el cielo debe bajar, se llama fall()
     {
         timer->stop();
 
@@ -130,15 +130,5 @@ void Player::fallDown()
         music->stop();
     }
 
-}
-
-void Player::spawn()
-{
-    //Creo el enemigo
-    Cubo* cubo = new Cubo();
-
-    //Agrego el enemigo a la escena
-    scene()->addItem(cubo);
- //   scene->addItem(cubo);
 }
 

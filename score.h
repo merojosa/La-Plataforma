@@ -11,6 +11,7 @@ public:
     Score(QGraphicsItem* parent = 0);
     int getScore();
     void increase();
+    void doubleScore();
 };
 
 #endif // SCORE_H

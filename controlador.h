@@ -14,6 +14,7 @@ class Controlador : public QObject, public QGraphicsRectItem
   public slots:
     void spawn_cubos();
     void spawn_misiles();
+    void spawn_sierras();
 };
 
 #endif // CONTROLADOR_H
