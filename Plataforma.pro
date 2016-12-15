@@ -19,22 +19,17 @@ SOURCES += main.cpp \
     cubo.cpp \
     controlador.cpp \
     game.cpp \
-<<<<<<< HEAD
-    score.cpp
-=======
+    score.cpp \
     misil.cpp
->>>>>>> 73b18137b4c13bab4eef100eb586a499256e4dc9
+    misil.cpp
 
 HEADERS  += \
     player.h \
     info.h \
     game.h \
-<<<<<<< HEAD
-    score.h
-=======
+    score.h \
     misil.h
->>>>>>> 73b18137b4c13bab4eef100eb586a499256e4dc9
-
+    misil.h
 
 HEADERS  += \
     player.h \
