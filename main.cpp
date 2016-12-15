@@ -1,6 +1,5 @@
 #include "player.h"
 #include "controlador.h"
-#include "cubo.h"
 
 #include <QApplication>
 #include <QGraphicsScene>
