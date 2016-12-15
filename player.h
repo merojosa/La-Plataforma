@@ -18,6 +18,7 @@ public:
 public slots:
     void ascend(); //Se activa al presionar la flecha arriba, asciende.
     void fall(); //Al presionar la flecha arriba, luego de ascender, baja.
+    void fallDown(); //Se activa al caer de la plataforma.
 
 };
 

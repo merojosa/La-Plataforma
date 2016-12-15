@@ -2,6 +2,7 @@
 #include <QDebug>
 
 bool jumping = false;
+bool disabled = false;
 
 Player::Player()
 {
@@ -21,6 +22,13 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
 
         setPos(x()-10, y());
+
+        if(x() == -280)
+        {
+            connect(timer, SIGNAL(timeout()), this, SLOT(fallDown()));
+            timer->start(10);
+            disabled = true;
+        }
     }
     else if(event->key() == Qt::Key_Right) //Derecha, si esta agachado se levanta
     {
@@ -31,15 +39,25 @@ void Player::keyPressEvent(QKeyEvent *event)
         }
 
         setPos(x()+10, y());
+
+        if(x() == 300)
+        {
+            connect(timer, SIGNAL(timeout()), this, SLOT(fallDown()));
+            timer->start(10);
+            disabled = true;
+        }
     }
     else if(event->key() == Qt::Key_Down) //Si está levantado se agacha.
     {
-        if(rect().height() != 30) //Si la altura no es 30 ( es 60 )
+        if(!disabled)
         {
-            if(y() == 0)
-                setRect(0,y()+450,30,30);
-            else
-                setRect(0,30,30,30);
+            if(rect().height() != 30) //Si la altura no es 30 ( es 60 )
+            {
+                if(y() == 0)
+                    setRect(0,y()+450,30,30);
+                else
+                    setRect(0,30,30,30);
+            }
         }
 
     }
@@ -50,7 +68,7 @@ void Player::keyPressEvent(QKeyEvent *event)
             if(jumping == false)
             {
                 connect(timer, SIGNAL(timeout()), this, SLOT(ascend()));
-                timer->start(30);
+                timer->start(15);
 
                 jumping = true;
 
@@ -75,7 +93,7 @@ void Player::ascend()
         timer->stop();
 
         connect(timer, SIGNAL(timeout()), this, SLOT(fall()));
-        timer->start(40);
+        timer->start(20);
     }
 }
 
@@ -90,4 +108,13 @@ void Player::fall()
     jumping = false;
 }
 
+void Player::fallDown()
+{
+    this->setPos(x(),y()+2);
 
+    if(y() == 600 || y() == 160)
+    {
+        delete this;
+    }
+
+}
