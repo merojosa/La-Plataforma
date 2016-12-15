@@ -9,7 +9,8 @@
 
 bool jumping = false;
 bool gameOver = false;
-bool immunity = false;
+bool immunity_variable = false;
+bool protection_variable = false;
 
 extern Game* game;
 extern QMediaPlayer* music;

@@ -12,6 +12,8 @@
 extern Player* player; //El jugador se hace global ya que será usado en otras clases
 extern Score* score; //Se debe acceder en esta clase
 extern bool gameOver;
+extern bool immunity_variable;
+extern bool protection_variable;
 
 Misil::Misil() : QObject(), QGraphicsRectItem()
 {
@@ -61,20 +63,18 @@ void Misil::move()
         // Si el misil choca con el jugador.
         if( typeid( *(colliding_items[contador]) ) == typeid(Player) )
         {
-            //Muestra el Game Over
+            // Muestra el Game Over
             Info* info = new Info();
             scene()->addItem(info);
             info->setPos(info->x()-100, info->y()+300);
 
             scene()->removeItem(player); //Elimina el jugador (global)
-
             scene()->removeItem(this);//Saco de escena al misil
             delete this;//Elimino el misil.
 
             gameOver = true;
 
             return;
-        }
     }
 
     if( disparar_derecha == true )//Si el misíl está a la derecha

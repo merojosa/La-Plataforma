@@ -14,6 +14,8 @@
 extern Player* player; //El jugador se hace global ya que será usado en otras clases
 extern Score* score; //Se debe acceder en esta clase
 extern bool gameOver;
+extern bool immunity_variable;
+extern bool protection_variable;
 
 Cubo::Cubo() : QObject(), QGraphicsRectItem()
 {
