@@ -50,42 +50,41 @@ void Player::keyPressEvent(QKeyEvent *event)
             if(jumping == false)
             {
                 connect(timer, SIGNAL(timeout()), this, SLOT(ascend()));
-                timer->start(35);
-
-                if(y() == -40 || y() == 380)
-                    timer->stop();
+                timer->start(30);
 
                 jumping = true;
+
             }
 
         }
+
     }
 }
 
 void Player::ascend()
 {
-    if(y() <= 0 && y() > -40)
+    if(y() <= 0 && y() > -40) //Si esta en este rango, se mueve
         this->setPos(x(), y()-2);
-    else if(y() <= 420 && y() > 380)
+    else if(y() <= 420 && y() > 380) //Si esta en este rango se mueve
         this->setPos(x(), y()-2);
 
-    if(y()==-40 || y() == 380)
+    //qDebug() << y();
+
+    if(y()==-40 || y() == 380) //Cuando esta en el cielo debe bajar, se llama fall()
     {
         timer->stop();
 
         connect(timer, SIGNAL(timeout()), this, SLOT(fall()));
         timer->start(40);
     }
-
-    qDebug() << y();
 }
 
 void Player::fall()
 {
-    if(y() < 0 && y() < 420)
+    if(y() < 420) //Rango de movimiento
         this->setPos(x(), y()+2);
 
-    if(y() == 0 || y() == 420)
+    if(y() == 0 || y() == 420) //Cuando llega al suelo se detiene
         timer->stop();
 
     jumping = false;
