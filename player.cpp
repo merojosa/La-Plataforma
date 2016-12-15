@@ -5,11 +5,13 @@
 
 #include <QDebug>
 #include <QGraphicsScene>
+#include <QMediaPlayer>
 
 bool jumping = false;
 bool gameOver = false;
 
 extern Game* game;
+extern QMediaPlayer* music;
 
 Player::Player()
 {
@@ -125,6 +127,7 @@ void Player::fallDown()
 
         delete this;
         gameOver = true;
+        music->stop();
     }
 
 }

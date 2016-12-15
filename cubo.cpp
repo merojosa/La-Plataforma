@@ -1,6 +1,7 @@
 #include "Cubo.h"
 #include "player.h"
 #include "info.h"
+#include "score.h"
 
 #include <QTimer>
 #include <QList>
@@ -11,6 +12,8 @@
 #include <QDebug>
 
 extern Player* player; //El jugador se hace global ya que será usado en otras clases
+extern Score* score; //Se debe acceder en esta clase
+extern bool gameOver;
 
 Cubo::Cubo() : QObject(), QGraphicsRectItem()
 {
@@ -54,6 +57,8 @@ void Cubo::move()
             scene()->removeItem(this);//Saco de escena al cubo
             delete this;//Elimino el cubo.
 
+            gameOver = true;
+
             return;
         }
     }
@@ -64,6 +69,9 @@ void Cubo::move()
     //El cubo sólo puede llegar hasta 493, este valor porque se ve bien a la vista, por la velocidad en que cae.
     if( pos().y() + rect().height() > 493 )
     {
+        if(!gameOver)
+            score->increase();
+
         scene()->removeItem(this);
         delete this;
     }

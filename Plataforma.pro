@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+         multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,16 +18,21 @@ SOURCES += main.cpp \
     info.cpp \
     cubo.cpp \
     controlador.cpp \
-    game.cpp
+    game.cpp \
+    score.cpp
 
 HEADERS  += \
     player.h \
     info.h \
-    game.h
+    game.h \
+    score.h
 
 
 HEADERS  += \
     player.h \
     cubo.h \
     controlador.h
+
+RESOURCES += \
+    music.qrc
 

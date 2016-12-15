@@ -1,13 +1,16 @@
 #include "game.h"
 #include "player.h"
 #include "controlador.h"
-#include "info.h"
+#include "score.h"
 
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QTimer>
+#include <QMediaPlayer>
 
 extern Player* player;
+Score* score;
+QMediaPlayer* music;
 
 void Game::start()
 {
@@ -31,6 +34,11 @@ void Game::start()
     leftColumn->setBrush(brush2);
     rightColumn->setBrush(brush2);
     platform->setBrush(brush2);
+
+    //Añado el puntaje
+    score = new Score();
+    score->setPos(250,30);
+    scene->addItem(score);
 
     //Se añade cada objeto a la escena.
     scene->addItem(leftColumn);
@@ -56,4 +64,9 @@ void Game::start()
     QTimer* timer = new QTimer();
     QObject::connect( timer, SIGNAL(timeout()), controlador, SLOT(spawn()) );
     timer->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
+
+    //Se añade sonido de fondo
+    music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sound/Insane-Gameplay.mp3"));
+    music->play();
 }

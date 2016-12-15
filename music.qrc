@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/sound">
+        <file>Insane-Gameplay.mp3</file>
+    </qresource>
+</RCC>
