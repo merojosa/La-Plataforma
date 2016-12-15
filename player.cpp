@@ -9,6 +9,7 @@
 
 bool jumping = false;
 bool gameOver = false;
+bool immunity = false;
 
 extern Game* game;
 extern QMediaPlayer* music;
