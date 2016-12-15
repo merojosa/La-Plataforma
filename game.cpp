@@ -44,7 +44,12 @@ void Game::start()
     //Para crear los cubos que caen desde el cielo
     Controlador* controlador = new Controlador();
     scene->addItem(controlador);//Para agregar un objeto a la escena, el controlador debe de estar en la escena.
-    QTimer* timer = new QTimer();
-    QObject::connect( timer, SIGNAL(timeout()), controlador, SLOT(spawn()) );
-    timer->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
+    QTimer* timer_cubos = new QTimer();
+    QObject::connect( timer_cubos, SIGNAL(timeout()), controlador, SLOT(spawn_cubos()) );
+    timer_cubos->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
+
+    //Creo los misiles
+    QTimer* timer_misiles = new QTimer();
+    QObject::connect( timer_misiles, SIGNAL(timeout()), controlador, SLOT(spawn_misiles()) );
+    timer_misiles->start(6000);//6 segundos
 }

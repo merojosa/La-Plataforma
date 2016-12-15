@@ -15,7 +15,7 @@ extern Player* player; //El jugador se hace global ya que será usado en otras c
 Cubo::Cubo() : QObject(), QGraphicsRectItem()
 {
     //225 es la mitad del largo de la plataforma.
-    int random_number = (rand() % 500) - 225;//[-225, 225]
+    int random_number = (rand() % 500) - 225;//[-225, 225] Rango de la plataforma
     //Lo pongo en una posición aleatoria
     setPos( random_number, 0 );
 

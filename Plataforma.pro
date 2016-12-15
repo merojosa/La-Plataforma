@@ -17,12 +17,14 @@ SOURCES += main.cpp \
     info.cpp \
     cubo.cpp \
     controlador.cpp \
-    game.cpp
+    game.cpp \
+    misil.cpp
 
 HEADERS  += \
     player.h \
     info.h \
-    game.h
+    game.h \
+    misil.h
 
 
 HEADERS  += \
