@@ -7,6 +7,7 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include <QMediaPlayer>
+#include <stdlib.h> //rand
 
 extern Player* player;
 Score* score;

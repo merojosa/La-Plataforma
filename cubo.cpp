@@ -29,7 +29,6 @@ Cubo::Cubo() : QObject(), QGraphicsRectItem()
     QBrush brush(Qt::darkGray);
     this->setBrush(brush);
 
-
     //Conecto
     QTimer* timer = new QTimer();
     //Cada cierto tiempo, se invocará a move

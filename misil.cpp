@@ -1,6 +1,7 @@
 #include "misil.h"
 #include "player.h"
 #include "info.h"
+#include "score.h"
 
 #include <QTimer>
 #include <QList>
@@ -9,6 +10,8 @@
 #include <stdlib.h> //rand
 
 extern Player* player; //El jugador se hace global ya que será usado en otras clases
+extern Score* score; //Se debe acceder en esta clase
+extern bool gameOver;
 
 Misil::Misil() : QObject(), QGraphicsRectItem()
 {
@@ -26,6 +29,10 @@ Misil::Misil() : QObject(), QGraphicsRectItem()
     //Dibujo el objeto
     setRect(0, 0, 40, 8);
 
+    //Cambio de color los misiles
+    //Cambio de color los cubos
+    QBrush brush(Qt::red);
+    this->setBrush(brush);
 
     //Conecto
     QTimer* timer = new QTimer();
@@ -64,6 +71,8 @@ void Misil::move()
             scene()->removeItem(this);//Saco de escena al misil
             delete this;//Elimino el misil.
 
+            gameOver = true;
+
             return;
         }
     }
@@ -76,6 +85,9 @@ void Misil::move()
     //Si se sale de la ventana
     if( pos().x() < -390 || pos().x() > 420 )//400 para que salga completamente de la ventana
     {
+        if(!gameOver)
+            score->increase();
+
         scene()->removeItem(this);//Lo elimino
         delete this;
     }
