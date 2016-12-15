@@ -23,6 +23,15 @@ void Game::start()
     rightColumn->setRect(200,500,30,150);
     platform->setRect(-250, 480, 550, 20);
 
+    //Cambio el color del rectángulo y la plataforma
+    QBrush brush(Qt::blue);
+    player->setBrush(brush);
+
+    QBrush brush2(Qt::gray);
+    leftColumn->setBrush(brush2);
+    rightColumn->setBrush(brush2);
+    platform->setBrush(brush2);
+
     //Se añade cada objeto a la escena.
     scene->addItem(leftColumn);
     scene->addItem(rightColumn);

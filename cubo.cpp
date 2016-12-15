@@ -22,6 +22,10 @@ Cubo::Cubo() : QObject(), QGraphicsRectItem()
     //Dibujo el objeto
     setRect(0, 0, 15, 15);
 
+    //Cambio de color los cubos
+    QBrush brush(Qt::darkGray);
+    this->setBrush(brush);
+
 
     //Conecto
     QTimer* timer = new QTimer();
