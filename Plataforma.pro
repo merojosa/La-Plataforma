@@ -13,8 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    player.cpp
+    player.cpp \
+    cubo.cpp \
+    controlador.cpp
 
 HEADERS  += \
-    player.h
+    player.h \
+    cubo.h \
+    controlador.h
 

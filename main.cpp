@@ -1,8 +1,12 @@
+#include "player.h"
+#include "controlador.h"
+#include "cubo.h"
+
 #include <QApplication>
 #include <QGraphicsScene>
-#include "player.h"
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
+#include <QTimer>
 
 int main(int argc, char *argv[])
 {
@@ -38,6 +42,13 @@ int main(int argc, char *argv[])
 
     view->setFixedSize(785,600);
     scene->setSceneRect(-360,30,780,560);
+
+    //Para crear los cubos que caen desde el cielo
+    Controlador* controlador = new Controlador();
+    scene->addItem(controlador);//Para agregar un objeto a la escena, el controlador debe de estar en la escena.
+    QTimer* timer = new QTimer();
+    QObject::connect( timer, SIGNAL(timeout()), controlador, SLOT(spawn()) );
+    timer->start(2000);//2000 milisegundos = 2 segundos, cada 2 segundos manda la sennal.
 
     return a.exec();
 }

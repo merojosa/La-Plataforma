@@ -1,5 +1,7 @@
 #include "player.h"
+#include "cubo.h"
 #include <QDebug>
+#include <QGraphicsScene>
 
 void Player::keyPressEvent(QKeyEvent *event)
 {
@@ -40,3 +42,4 @@ void Player::keyPressEvent(QKeyEvent *event)
     }
 
 }
+
