@@ -1,5 +1,9 @@
 #include "player.h"
+
 #include "info.h"
+
+#include "cubo.h"
+
 #include <QDebug>
 #include <QGraphicsScene>
 
@@ -124,3 +128,14 @@ void Player::fallDown()
     }
 
 }
+
+void Player::spawn()
+{
+    //Creo el enemigo
+    Cubo* cubo = new Cubo();
+
+    //Agrego el enemigo a la escena
+    scene()->addItem(cubo);
+ //   scene->addItem(cubo);
+}
+

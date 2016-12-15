@@ -20,6 +20,10 @@ public slots:
     void fall(); //Al presionar la flecha arriba, luego de ascender, baja.
     void fallDown(); //Se activa al caer de la plataforma.
 
+
+  public slots:
+    //Para crear los cubos en memoria dinámica
+    void spawn();
 };
 
 #endif // PLAYER_H
