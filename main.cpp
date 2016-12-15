@@ -3,6 +3,7 @@
 #include "player.h"
 #include <QGraphicsLineItem>
 #include <QGraphicsView>
+#include "info.h"
 
 int main(int argc, char *argv[])
 {

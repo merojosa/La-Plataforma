@@ -1,5 +1,7 @@
 #include "player.h"
+#include "info.h"
 #include <QDebug>
+#include <QGraphicsScene>
 
 bool jumping = false;
 bool disabled = false;
@@ -114,6 +116,10 @@ void Player::fallDown()
 
     if(y() == 600 || y() == 160)
     {
+        Info* info = new Info();
+        scene()->addItem(info);
+        info->setPos(info->x()-100, info->y()+300);
+
         delete this;
     }
 
